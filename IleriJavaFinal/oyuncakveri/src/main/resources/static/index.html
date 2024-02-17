@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oyuncak Mağazası</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="Script.js"></script>
+    <style>
+        .btn {
+            width: 220px;
+            height: 40px;
+            display: block;
+            margin: 16px auto;
+        }
+        .card {
+
+        }
+    </style>
+</head>
+<body class="container mt-5 p-3 mb-2 bg-secondary text-light">
+<div> <h1 style="align-content: center" > Pervin Açıkbaş H5220005 </h1> </div>
+<div class="container">
+    <div class="row ">
+        <div class="col-sm-6">
+            <div class="card mb-4 text-dark rounded d-flex justify-content-center">
+                <div id="ekle" class="container">
+                    <h1 class="mb-4">Oyuncak Ekleme</h1>
+                    <form>
+                        <div class="form-group">
+                            <label for="eklead">Oyuncak Adı:</label>
+                            <input type="text" class="form-control" id="eklead" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eklealisTarihi">Alış Tarihi:</label>
+                            <input type="date" class="form-control" id="eklealisTarihi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eklealisFiyati">Alış Fiyatı:</label>
+                            <input type="text" class="form-control" id="eklealisFiyati" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ekletur">Tür:</label>
+                            <input type="text" class="form-control" id="ekletur" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ekledesi">Desi:</label>
+                            <input type="text" class="form-control" id="ekledesi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eklenotlar">Notlar:</label>
+                            <input type="text" class="form-control" id="eklenotlar">
+                        </div>
+                        <button type="button" class="btn btn-outline-success" onclick="ekle()">Oyuncak Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class=" col-sm-6">
+            <div class="card bg-danger-emphasis text-dark rounded d-flex justify-content-center ">
+                <div class="container">
+                    <h1 class="mb-4 ">Oyuncak Güncelleme</h1>
+                    <form>
+                        <div class="form-group">
+                            <label for="guncelleAd">Ad:</label>
+                            <input type="text" class="form-control" id="guncelleAd">
+                        </div>
+                        <div class="form-group">
+                            <label for="guncelleAlisTarihi">Alış Tarihi:</label>
+                            <input type="date" class="form-control" id="guncelleAlisTarihi">
+                        </div>
+                        <div class="form-group">
+                            <label for="guncelleAlisFiyati">Alış Fiyatı:</label>
+                            <input type="text" class="form-control" id="guncelleAlisFiyati">
+                        </div>
+                        <div class="form-group">
+                            <label for="guncelleTur">Tür:</label>
+                            <input type="text" class="form-control" id="guncelleTur">
+                        </div>
+                        <div class="form-group">
+                            <label for="guncelleDesi">Desi:</label>
+                            <input type="text" class="form-control" id="guncelleDesi">
+                        </div>
+                        <div class="form-group">
+                            <label for="guncelleNotlar">Notlar:</label>
+                            <input type="text" class="form-control" id="guncelleNotlar">
+                        </div>
+                        <button type="button" class="btn btn-outline-warning" onclick="guncelle()">Oyuncak Bilgisini Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card mb-4 text-dark rounded d-flex justify-content-center">
+                <div class="container">
+                    <h1 class="mb-4">Oyuncak Getirme</h1>
+                    <div class="form-group">
+                        <label for="oyuncakId">Oyuncak ID:</label>
+                        <input type="text" class="form-control" id="Id" name="oyuncakId" placeholder="Oyuncak ID giriniz">
+                    </div>
+                    <button class="btn btn-outline-primary mb-4" onclick="getir()">Oyuncak Bilgisini Getir</button>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Oyuncak Adı:</strong> <span id="getiroyuncakAd"></span></p>
+                        <p class="card-text"><strong>Alış Tarihi:</strong> <span id="getiralisTarihi"></span></p>
+                        <p class="card-text"><strong>Desi:</strong> <span id="getirdesi"></span></p>
+                        <p class="card-text"><strong>Tür:</strong> <span id="getirtur"></span></p>
+                        <p class="card-text"><strong>Notlar:</strong> <span id="getirnotlar"></span></p>
+                        <p class="card-text"><strong>Alış Fiyatı:</strong> <span id="getiralisFiyati"></span></p>
+                        <p class="card-text"><strong>Oyuncak ID:</strong> <span id="getiroyuncakID"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card text-dark rounded d-flex justify-content-center">
+                <div class="container">
+                    <h1 class="mb-4">Oyuncak Silme</h1>
+                    <div class="form-group">
+                        <label for="oyuncakId">Oyuncak ID:</label>
+                        <input type="text" class="form-control" id="oyuncakId" name="oyuncakId" placeholder="Oyuncak ID giriniz">
+                    </div>
+                    <button type="button" class="btn btn-outline-danger mb-3" onclick="sil()">Oyuncak Sil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container bg-white text-dark">
+            <div class="row">
+                <div class="col mb-4 rounded d-flex justify-content-center">
+                    <h1 class="mb-4">Oyuncak Listesi</h1>
+                </div>
+                <div class="col mb-4 bg-white text-dark rounded d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-info mb-3 fixed-size-btn align-items-start" onclick="listele()">Oyuncak listesini getir</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1">
+                    <input type="text" id="searchId" class="form-control form-control-sm mb-2" placeholder="ID Ara..." data-column="0">
+                </div>
+                <div class="col-2">
+                    <input type="text" id="searchAd" class="form-control form-control-sm mb-2" placeholder="Ad Ara..." data-column="1">
+                </div>
+                <div class="col-2">
+                    <input type="text" id="searchAlisTarihi" class="form-control form-control-sm mb-2" placeholder="Alış Tarihi Ara..." data-column="2">
+                </div>
+                <div class="col-2">
+                    <input type="text" id="searchAlisFiyatı" class="form-control form-control-sm mb-2" placeholder="Alış Fiyatı Ara..." data-column="3">
+                </div>
+                <div class="col-2">
+                    <input type="text" id="searchTur" class="form-control form-control-sm mb-2" placeholder="Tür Ara..." data-column="4">
+                </div>
+                <div class="col-1">
+                    <input type="text" id="searchDesi" class="form-control form-control-sm mb-2" placeholder="Desi Ara..." data-column="5">
+                </div>
+                <div class="col-2">
+                    <input type="text" id="searchNotlar" class="form-control form-control-sm mb-2" placeholder="Notlar Ara..." data-column="6">
+                </div>
+            </div>
+
+            <ul id="oyuncakListesi"></ul>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
